@@ -12,5 +12,4 @@ public class ProducerConfiguration {
         return new ProducerFactory()
             .addProducer(Topics.STRING, String.class);
     }
-
 }
