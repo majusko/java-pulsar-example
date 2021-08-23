@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: org.springframework.boot:spring-boot-starter-parent
+    versions:
+    - 2.4.3
+    - 2.4.4
+  - dependency-name: org.testcontainers:pulsar
+    versions:
+    - 1.15.2
+  - dependency-name: org.testcontainers:junit-jupiter
+    versions:
+    - 1.15.2
+  - dependency-name: org.testcontainers:testcontainers
+    versions:
+    - 1.15.2

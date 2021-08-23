@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.2</version>
+        <version>2.5.3</version>
         <relativePath/>
     </parent>
     <groupId>io.github.majusko</groupId>
@@ -18,9 +18,9 @@
         <java.version>11</java.version>
 
         <!--    TESTS    -->
-        <testcontainers.version>1.15.1</testcontainers.version>
-        <junit-jupiter.version>5.7.2</junit-jupiter.version>
-        <awaitility.version>4.0.3</awaitility.version>
+        <testcontainers.version>1.16.0</testcontainers.version>
+        <junit-jupiter.version>5.7.0</junit-jupiter.version>
+        <awaitility.version>4.1.0</awaitility.version>
     </properties>
 
     <dependencies>
@@ -96,7 +96,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.6</version>
+                <version>0.8.7</version>
                 <configuration>
                     <excludes>
                         <exclude>**/*Properties.*</exclude>
