@@ -5,4 +5,5 @@ public class Topics {
     }
 
     public static final String STRING = "example-string-topic";
+    public static final String CLASS = "example-class-topic";
 }

@@ -1,8 +1,7 @@
 package io.github.majusko.java.pulsar.example;
 
-import io.github.majusko.java.pulsar.example.configuration.Topics;
 import io.github.majusko.java.pulsar.example.consumer.ConsumerService;
-import io.github.majusko.pulsar.producer.PulsarTemplate;
+import io.github.majusko.java.pulsar.example.producer.ProducerService;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PulsarContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.utility.DockerImageName;
 
 import static org.awaitility.Awaitility.await;
 
@@ -20,13 +20,13 @@ import static org.awaitility.Awaitility.await;
 class JavaPulsarExampleApplicationTests {
 
     @Autowired
-    private PulsarTemplate<String> producer;
+    private ProducerService producerService;
 
     @Autowired
     private ConsumerService consumerService;
 
     @Container
-    static PulsarContainer pulsarContainer = new PulsarContainer();
+    static PulsarContainer pulsarContainer = new PulsarContainer(DockerImageName.parse("apachepulsar/pulsar:latest"));
 
     @DynamicPropertySource
     static void propertySettings(DynamicPropertyRegistry registry) {
@@ -34,11 +34,20 @@ class JavaPulsarExampleApplicationTests {
     }
 
     @Test
-    void contextLoads() throws PulsarClientException {
-        await().untilFalse(consumerService.received);
+    void stringTest() throws PulsarClientException {
+        await().untilFalse(consumerService.stringReceived);
 
-        producer.send(Topics.STRING, "message");
+        producerService.sendStringMsg();
 
-        await().untilTrue(consumerService.received);
+        await().untilTrue(consumerService.stringReceived);
+    }
+
+    @Test
+    void classTest() throws PulsarClientException {
+        await().untilFalse(consumerService.classReceived);
+
+        producerService.sendClassMsg();
+
+        await().untilTrue(consumerService.classReceived);
     }
 }
