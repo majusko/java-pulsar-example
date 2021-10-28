@@ -2,6 +2,8 @@
 
 [![Build Status](https://github.com/majusko/java-pulsar-example/actions/workflows/test.yml/badge.svg)](https://github.com/majusko/java-pulsar-example/actions/workflows/test.yml)
 [![Test Coverage](https://codecov.io/gh/majusko/java-pulsar-example/branch/master/graph/badge.svg)](https://codecov.io/gh/majusko/java-pulsar-example/branch/master)
+[![TCode Quality](https://github.com/majusko/java-pulsar-example/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/majusko/java-pulsar-example/actions/workflows/codeql-analysis.yml)
+
 
 ### Project consists of
 1. Consumer registration example
