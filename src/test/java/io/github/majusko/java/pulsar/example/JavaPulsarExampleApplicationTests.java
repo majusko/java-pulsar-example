@@ -2,6 +2,7 @@ package io.github.majusko.java.pulsar.example;
 
 import io.github.majusko.java.pulsar.example.consumer.ConsumerService;
 import io.github.majusko.java.pulsar.example.producer.ProducerService;
+import io.github.majusko.pulsar.consumer.ConsumerAggregator;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ import static org.awaitility.Awaitility.await;
 @SpringBootTest
 @Testcontainers
 class JavaPulsarExampleApplicationTests {
+
+    @Autowired
+    private ConsumerAggregator consumerAggregator;
 
     @Autowired
     private ProducerService producerService;
